@@ -11,11 +11,11 @@ RUN git clone https://github.com/openvenues/libpostal -b $COMMIT
 
 COPY ./*.sh /libpostal/
 
-USER nobody
 RUN chown -R nobody:nogroup /libpostal
 RUN chmod +x /libpostal/build_libpostal.sh
 RUN chmod +x /libpostal/build_libpostal_rest.sh
 
+USER nobody
 WORKDIR /libpostal
 RUN ./build_libpostal.sh
 RUN ./build_libpostal_rest.sh
